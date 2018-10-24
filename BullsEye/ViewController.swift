@@ -25,8 +25,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let roundedValue = slider.value.rounded()
         currentValue = Int(roundedValue)
-        startNewRound()
+        startNewGame()
     }
+    
     func updateLabels() {
         targetLabel.text = String(targetValue)
         scoreLabel.text = String(score)
@@ -40,7 +41,11 @@ class ViewController: UIViewController {
         updateLabels()
     }
 
-
+    @IBAction func startNewGame() {
+        score = 0
+        round = 0
+        startNewRound()
+    }
     @IBAction func showAlert() {
         
         let difference = abs(targetValue - currentValue)
